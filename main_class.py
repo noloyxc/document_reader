@@ -4,7 +4,6 @@ Additional information if required and more infos. Complete sentences please.
 """
 
 import json
-import main_class
 
 __author__ = "6770541: Niels Heissel"
 __copyright__ = "Copyright 2017/2018 – EPR-Goethe-Uni"
@@ -12,11 +11,17 @@ __credits__ = "Thanks Mom :)"
 __email__ = "nielsheissel99@googlemail.com"
 
 
+class DocumentReader():
+    """Simple Class"""
+    test_var = 2
 
-def main():
-    print("Let's start the program.")
-    test_instance = main_class.DocumentReader("Xml", False)
-    test_instance.test_methode()
+    def __init__(self, source, type):
+        self.source = source
+        self.type = type
 
-if __name__ == '__main__':
-    main()
+    def test_methode(self):
+        print("Test")
+
+        if self.type is True:
+            print("was true!")
+        else: print("was false.")
