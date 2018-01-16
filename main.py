@@ -14,8 +14,10 @@ __email__ = "nielsheissel99@googlemail.com"
 
 
 def main():
+    source = "/Users/nielsheissel/Downloads/Morgen_Kinder.txt"
+
     print("Let's start the program.")
-    test_instance = main_class.DocumentReader("Xml", False)
+    test_instance = main_class.DocumentReader(source, False)
     test_instance.test_methode()
 
 if __name__ == '__main__':
