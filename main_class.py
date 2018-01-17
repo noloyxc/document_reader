@@ -11,7 +11,7 @@ from tkinter import filedialog
 
 __author__ = "6770541: Niels Heissel"
 __copyright__ = "Copyright 2017/2018 – EPR-Goethe-Uni"
-__credits__ = "Thanks Mom :)"
+__credits__ = "Thanks mom :)"
 __email__ = "nielsheissel99@googlemail.com"
 
 
@@ -37,7 +37,7 @@ class DocumentReader():
         self.root.mainloop
 
     def find_decoding(self):
-        """This methode tries all standard encodings and return the working one."""
+        """This method tries all standard encodings and return the working one."""
         try:
             file = open(self.source, encoding="utf-8")
             file.read()
@@ -56,7 +56,7 @@ class DocumentReader():
         return "utf-8"
 
     def read_document(self):
-        """A simple methode to read and print a document."""
+        """A simple method to read and print a document."""
         print("Reading Doc...")
         with open(self.source, encoding=self.encoding) as doc:
             content = doc.read()
@@ -124,5 +124,14 @@ class DocumentReader():
     def write_statistic(self):
         """This method writes the statistics of a document as a json to a new file."""
         json_dict = self.read_statistic()
-        json_string = json.dumps(json_dict)
-        print(json_string)
+
+        destination = self.source.split("/")
+        destination_path = ""
+        for i in range(len(destination)-1):
+            destination_path += "/" + destination[i]
+        destination_path += "/statistic_file.txt"
+
+        with open(destination_path, "w", encoding="utf-8") as static_doc:
+            json.dump(json_dict, static_doc, ensure_ascii=False)
+
+        print("Saved the statistic file under:", destination_path)
