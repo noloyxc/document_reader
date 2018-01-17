@@ -18,7 +18,6 @@ def main():
 
     print("Let's start the program.")
     test_instance = main_class.DocumentReader(source, False)
-    test_instance.test_methode()
 
 if __name__ == '__main__':
     main()
